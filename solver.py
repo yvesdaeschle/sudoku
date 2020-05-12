@@ -37,20 +37,20 @@ def print_board(board):
             if i == 8:
                 print()
 
-def next_field(board, row, col):
-
-    while row < len(board):
-        while col < len(board[row]):
-            if col > 7:
-                col = 0
-                row += 1
-
+def next_field(board):
+    for row in range(len(board)):
+        for col in range(len(board[0])):
             if board[row][col] == 0:
                 return (row, col)
 
-            col += 1
+    return None
 
-    return (row, col)
+def check(board, val, row, col):
+    # check row
+    # check col
+    # check section
+    return true
+
 
 print_board(board)
-print(next_field(board, 0, 0))
+print(next_field(board))
