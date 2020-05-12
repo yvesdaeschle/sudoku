@@ -50,7 +50,7 @@ def next_field(board, row, col):
 
             col += 1
 
-    return (len(board), len(board[0]))
+    return (row, col)
 
 print_board(board)
 print(next_field(board, 0, 0))
