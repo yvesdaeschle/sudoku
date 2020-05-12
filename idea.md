@@ -30,3 +30,9 @@ Teilösung (feld, failed):
     - was falsch: false -> schritt vorher als ungültig speichern
   - fertig? juhu: true
   - Finde nächste Teillösung mit nächsten Feld
+  
+Was ich brauche:
+- schleife für rekursiven call
+- next field finden
+- check
+- dict[array] [feld(x,y)][array]
