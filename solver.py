@@ -36,5 +36,21 @@ def print_board(board):
 
             if i == 8:
                 print()
-        
+
+def next_field(board, row, col):
+
+    while row < len(board):
+        while col < len(board[row]):
+            if col > 7:
+                col = 0
+                row += 1
+
+            if board[row][col] == 0:
+                return (row, col)
+
+            col += 1
+
+    return (len(board), len(board[0]))
+
 print_board(board)
+print(next_field(board, 0, 0))
