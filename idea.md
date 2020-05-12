@@ -20,4 +20,13 @@ Funktion FindeLösung (Stufe, Vektor)
     - auch 9 nicht, fehler vorher
       - back
 
-- Frage: Wie speicher ich
+- Frage: Wie speicher ich ich die Fehler?
+
+Teilösung (feld, failed):
+1. Nächstes freies Feld finden
+2. Teillösung testen: 
+  - nächste gültige wahl suchen + nicht ungültig ist
+  - keine gültige zahl?
+    - was falsch: false -> schritt vorher als ungültig speichern
+  - fertig? juhu: true
+  - Finde nächste Teillösung mit nächsten Feld
