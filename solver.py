@@ -23,6 +23,15 @@ board = [
     [0,0,6,0,0,5,8,0,0]
 ]
 
+def solve(board):
+    next = next_field(boar)
+    if not next:
+        return true
+
+    for n in range(10):
+        if check(board, n, next[0], next[1]):
+            solve(board)
+
 def print_board(board):
     for n in range(len(board)):
         if n % 3 == 0 and n != 0:
@@ -47,10 +56,27 @@ def next_field(board):
 
 def check(board, val, row, col):
     # check row
+    for i in range(len(board[row])):
+        if board[row][i] == val:
+            return False
+
     # check col
+    for i in range(len(board)):
+        if board[i][col] == val:
+            return False
+
     # check section
-    return true
+    for i in range(row // 3 * 3, row // 3 * 3 + 3):
+        for j in range(col // 3 * 3, col // 3 * 3 + 3):
+            if board[i][j] == val:
+                return False
 
+    return True
 
+solve(board)
 print_board(board)
+
 print(next_field(board))
+print(check(board, 6, 0, 0))
+print(check(board, 1, 0, 0))
+print(check(board, 5, 7, 7))
