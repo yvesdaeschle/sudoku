@@ -1,16 +1,5 @@
 #https://techwithtim.net/tutorials/python-programming/sudoku-solver-backtracking/
 
-#Lösung:
-#864537192
-#235981647
-#917246583
-#173852964
-#592164378
-#648379251
-#781693425
-#359428716
-#426715839
-
 board = [
     [0,0,0,0,0,0,1,9,0],
     [2,3,0,0,0,0,6,0,0],
@@ -24,13 +13,22 @@ board = [
 ]
 
 def solve(board):
-    next = next_field(boar)
-    if not next:
-        return true
+    next = next_field(board)
+    if not next: #end of board
+        return True
+    else:
+        row, col = next
 
-    for n in range(10):
-        if check(board, n, next[0], next[1]):
-            solve(board)
+    for n in range(1, 10):
+        if check(board, n, row, col):
+            board[row][col] = n
+            
+            if solve(board):
+                return True
+
+            board[row][col] = 0
+
+    return False
 
 def print_board(board):
     for n in range(len(board)):
@@ -73,10 +71,7 @@ def check(board, val, row, col):
 
     return True
 
-solve(board)
 print_board(board)
-
-print(next_field(board))
-print(check(board, 6, 0, 0))
-print(check(board, 1, 0, 0))
-print(check(board, 5, 7, 7))
+solve(board)
+print('- - - - - - - - - - - ')
+print_board(board)
